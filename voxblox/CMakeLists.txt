@@ -97,57 +97,57 @@ if(NOT ANDROID_NREAL)
     ${CATKIN_DEVEL_PREFIX}/${CATKIN_PACKAGE_PYTHON_DESTINATION}/../)
   endif()
 
-  ############
-  # BINARIES #
-  ############
-
-  add_executable(tsdf_to_esdf
-    test/tsdf_to_esdf.cc
-  )
-  target_link_libraries(tsdf_to_esdf ${PROJECT_NAME} ${catkin_LIBRARIES})
-
-  add_executable(test_load_esdf
-    test/test_load_esdf.cc
-  )
-  target_link_libraries(test_load_esdf ${PROJECT_NAME} ${catkin_LIBRARIES})
-
-  #########
-  # TESTS #
-  #########
-
-  add_custom_target(test_data)
-  add_custom_command(TARGET test_data
-                    COMMAND rm -rf test_data
-                    COMMAND mkdir -p test_data
-                    COMMAND cp -r ${CMAKE_SOURCE_DIR}/test/test_data/*
-                                  test_data/ || :)
-
-  #add_definitions(-DVISUALIZE_UNIT_TEST_RESULTS)
-
-  catkin_add_gtest(test_approx_hash_array
-    test/test_approx_hash_array.cc
-  )
-  target_link_libraries(test_approx_hash_array ${PROJECT_NAME})
-
-  catkin_add_gtest(test_tsdf_map
-    test/test_tsdf_map.cc
-  )
-  target_link_libraries(test_tsdf_map ${PROJECT_NAME} ${catkin_LIBRARIES})
-
-  catkin_add_gtest(test_protobuf
-    test/test_protobuf.cc
-  )
-  target_link_libraries(test_protobuf ${PROJECT_NAME} ${catkin_LIBRARIES})
-
-  catkin_add_gtest(test_tsdf_interpolator
-    test/test_tsdf_interpolator.cc
-  )
-  target_link_libraries(test_tsdf_interpolator ${PROJECT_NAME} ${catkin_LIBRARIES})
-
-  catkin_add_gtest(test_layer
-    test/test_layer.cc
-  )
-  target_link_libraries(test_layer ${PROJECT_NAME} ${catkin_LIBRARIES})
+#  ############
+#  # BINARIES #
+#  ############
+#
+#  add_executable(tsdf_to_esdf
+#    test/tsdf_to_esdf.cc
+#  )
+#  target_link_libraries(tsdf_to_esdf ${PROJECT_NAME} ${catkin_LIBRARIES})
+#
+#  add_executable(test_load_esdf
+#    test/test_load_esdf.cc
+#  )
+#  target_link_libraries(test_load_esdf ${PROJECT_NAME} ${catkin_LIBRARIES})
+#
+#  #########
+#  # TESTS #
+#  #########
+#
+#  add_custom_target(test_data)
+#  add_custom_command(TARGET test_data
+#                    COMMAND rm -rf test_data
+#                    COMMAND mkdir -p test_data
+#                    COMMAND cp -r ${CMAKE_SOURCE_DIR}/test/test_data/*
+#                                  test_data/ || :)
+#
+#  #add_definitions(-DVISUALIZE_UNIT_TEST_RESULTS)
+#
+#  catkin_add_gtest(test_approx_hash_array
+#    test/test_approx_hash_array.cc
+#  )
+#  target_link_libraries(test_approx_hash_array ${PROJECT_NAME})
+#
+#  catkin_add_gtest(test_tsdf_map
+#    test/test_tsdf_map.cc
+#  )
+#  target_link_libraries(test_tsdf_map ${PROJECT_NAME} ${catkin_LIBRARIES})
+#
+#  catkin_add_gtest(test_protobuf
+#    test/test_protobuf.cc
+#  )
+#  target_link_libraries(test_protobuf ${PROJECT_NAME} ${catkin_LIBRARIES})
+#
+#  catkin_add_gtest(test_tsdf_interpolator
+#    test/test_tsdf_interpolator.cc
+#  )
+#  target_link_libraries(test_tsdf_interpolator ${PROJECT_NAME} ${catkin_LIBRARIES})
+#
+#  catkin_add_gtest(test_layer
+#    test/test_layer.cc
+#  )
+#  target_link_libraries(test_layer ${PROJECT_NAME} ${catkin_LIBRARIES})
 
 endif()
 
